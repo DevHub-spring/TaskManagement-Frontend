@@ -11,8 +11,8 @@ function App() {
     <Router>
       <Routes>
       <Route path="/" element={<Navigate to="/loginpage" />} /> {/* Redirect to /loginpage */}
-        <Route path="/LoginPage" element={<Loginpage/>} />
-        <Route path="/Registerpage" element={<RegisterForm/>} />
+        <Route path="/loginpage" element={<Loginpage/>} />
+        <Route path="/registerpage" element={<RegisterForm/>} />
       </Routes>
     </Router>
   );
