@@ -1,11 +1,10 @@
 import React from 'react'
-import './RegisterForm.css'
 import registerImage from '../../../images/register.png'
 
 export const RegisterForm = () => {
   return (
     <div className='RegisterContainer'>
-    <div className="Register-ImageSection">
+    <div className="image-section">
         <img src={registerImage} alt="register-image" />
     </div>
     <div className='RegisterSection'>
@@ -14,23 +13,23 @@ export const RegisterForm = () => {
             <div className="textbox">
             <input type="text" placeholder="First Name" name="firstname" required/>
             </div>
-            <div className="register-textbox">
+            <div className="textbox">
             <input type="text" placeholder="Last Name" name="lastname" required/>
             </div>
-            <div className="register-textbox">
+            <div className="textbox">
             <input type="text" placeholder="Username" name="username" required/>
             </div>
-            <div className="register-textbox">
+            <div className="textbox">
             <input type="email" placeholder="Email" name="email" required/>
             </div>
-            <div className="register-textbox">
+            <div className="textbox">
             <input type="password" placeholder="Password" name="password" required/>
             </div>
-            <div className="register-textbox">
+            <div className="textbox">
             <input type="password" placeholder="Confirm Password" name="confirmpassword" required/>
             </div>
             <button type="submit" className="Registerbtn">Register</button>
-            <div className="login-link">
+            <div className="register-link">
             <p>Already have an account? <a href="#">Login here</a></p>
             </div>
         </form>
