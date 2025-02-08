@@ -1,0 +1,21 @@
+body{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.RegisterContainer{
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4 10 rgba(0, 0, 0, 0.2);
+}
+.textbox{
+    width:100%;
+}
