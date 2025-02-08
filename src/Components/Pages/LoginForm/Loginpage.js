@@ -2,6 +2,7 @@ import React from 'react';
 import './Login_Registerpage.css'
 import { FaUser,FaLock } from "react-icons/fa";
 import loginImage from '../../../images/login.png';
+import { Link } from 'react-router-dom';
 
 export const Loginpage = () => {
   return (
@@ -28,7 +29,7 @@ export const Loginpage = () => {
           </div>
           <button type="submit" className="loginbtn">Login</button>
           <div className="register-link">
-            <p>Don't have an account? <a href="#">Register here</a></p>
+            <p>Don't have an account? <Link to="/RegisterPage">Register here</Link></p>
           </div>
         </form>
     </div>
