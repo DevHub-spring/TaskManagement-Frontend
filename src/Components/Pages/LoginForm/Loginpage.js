@@ -30,6 +30,7 @@ export const Loginpage = () => {
           <button type="submit" className="loginbtn">Login</button>
           <div className="register-link">
             <p>Don't have an account? <Link to="/RegisterPage">Register here</Link></p>
+
           </div>
         </form>
     </div>
