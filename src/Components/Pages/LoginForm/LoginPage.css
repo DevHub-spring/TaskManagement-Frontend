@@ -1,0 +1,206 @@
+/*base styling*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFDD0;
+}
+
+/*Login Page Container*/
+.logincontainer{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Login Card*/
+.loginCard{
+    display: flex;
+    overflow: hidden;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+/*Left-side Image Section for login and register page*/
+.loginCard .image-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+}
+
+.loginCard .image-section img{
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/*Right-side Login Section*/
+.loginSection{
+    width: 40%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+/*Login section Heading Styling*/
+h1{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*Login section textbox*/
+.loginSection .textbox{
+    position: relative;
+    margin:15px;
+}
+
+/*Login section Input Field Styling*/
+.loginSection .textbox input{
+   width: 100%;
+   border: 2px solid rgba(255, 255, 255, .2);
+   border-radius: 25px;
+   font-size: 16px;
+   border-color: black;
+   padding: 15px 45px 16px 14px;
+   
+}
+.loginSection .textbox input::placeholder{
+    color: black;
+}
+.loginSection .textbox .icon{
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size:16px;
+}
+
+/*Remember me and Forgot Password Section*/
+.loginSection .rememberme-forgot{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.rememberme-forgot label input{
+    accent-color: black;
+    cursor: pointer;
+    margin-left:20px
+}
+
+.rememberme-forgot  a{
+    color: black;
+    text-decoration: none;
+}
+
+.rememberme-forgot  a:hover{
+    text-decoration: underline;
+}
+
+
+/*Login Button Styling*/
+.loginSection .loginbtn{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: black;
+    border-radius: 40px;
+    margin: 20px 0;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.loginbtn:hover {
+    background: #333;
+}
+
+/*register link Styling*/
+
+.loginSection .register-link{
+    text-align: center;
+    font-size: 14.5px;
+    margin: 20px 0 15px;
+}
+
+.loginSection .register-link p a{
+    color: blue;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.loginSection .register-link p a:hover{
+    text-decoration: underline;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px){
+    
+    .image-section img{
+        width: 50%;
+        height:auto;
+    }
+    
+}
+
+
+@media(max-width:768px){
+    .loginCard{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .image-section{
+        width: 100%;
+        padding:10px
+    }
+    .image-section img{
+        max-width: 70%;
+    }
+    .loginSection{
+        /* max-width: 70%; */
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media(max-width: 480px){
+    .loginSection{
+        padding: 15px;
+    }
+
+    /* .textbox input{
+        font-size: 14px;
+    }
+
+    .loginbtn{
+        font-size: 16px;
+    } */
+
+    .image-section img {
+        max-width: 90%;
+    }
+}

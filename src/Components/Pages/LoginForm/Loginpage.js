@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login_Registerpage.css'
+import './LoginPage.css';
 import { FaUser,FaLock } from "react-icons/fa";
 import loginImage from '../../../images/login.png';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export const Loginpage = () => {
   return (
     <div className="logincontainer">
+      <div className="loginCard">
       <div className="image-section">
         <img src={loginImage} alt="login-image" />
       </div>
@@ -33,7 +34,9 @@ export const Loginpage = () => {
 
           </div>
         </form>
-    </div>
+        </div>
+      </div>
+      
     </div>
     
   );

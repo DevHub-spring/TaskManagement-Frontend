@@ -1,0 +1,181 @@
+/*base styling*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Register page specific styles */
+.RegisterPage * {
+    margin: -4px; /* Example: change margin for the register page */
+}
+
+
+body{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFDD0;
+}
+
+/*Register Container*/
+.RegisterContainer{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Register Card*/
+.RegisterCard{
+    display: flex;
+    overflow: hidden;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+/*Left-side Image Section for login and register page*/
+.RegisterCard .image-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+}
+
+.RegisterCard .image-section img{
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/*right side Register Section*/
+.RegisterSection{
+    width: 40%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Register Section Header Styling*/
+h1{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*Register section textbox*/
+.RegisterSection .textbox {
+    position: relative;
+    margin: 15px 0;
+}
+
+/*Register section Input Field Styling*/
+.RegisterSection .textbox input{
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 25px;
+    font-size: 16px;
+    border-color: black;
+    padding:15px 45px 16px 14px;
+}
+
+.RegisterSection .textbox input::placeholder{
+    color: black;
+}
+
+.RegisterSection .textbox .icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+
+/*Register Button Styling*/
+.RegisterSection .Registerbtn{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: black;
+    border-radius: 40px;
+    margin: 20px 0;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.Registerbtn:hover {
+    background: #333;
+}
+
+/* Already Have an Account Link */
+
+.RegisterSection .register-link{
+    text-align: center;
+    font-size: 14.5px;
+    margin: 20px 0 15px;
+}
+
+.RegisterSection .register-link p a{
+    color: blue;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.RegisterSection .register-link p a:hover {
+    text-decoration: underline;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 1024px) {
+    .image-section img {
+        width: 50%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .RegisterCard {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .image-section img {
+        max-width: 70%;
+    }
+
+    .RegisterSection {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .RegisterSection {
+        padding: 15px;
+    }
+
+    .image-section img {
+        max-width: 90%;
+    }
+}

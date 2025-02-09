@@ -5,13 +5,15 @@ import {FaUser} from 'react-icons/fa';
 import {MdEmail} from 'react-icons/md';
 import {PiPasswordFill} from 'react-icons/pi';
 import { Link } from 'react-router-dom';
+import './RegisterPage.css';
 
 export const RegisterPage = () => {
   return (
     <div className='RegisterContainer'>
-    <div className="image-section">
+      <div className='RegisterCard'>
+      <div className="image-section">
         <img src={registerImage} alt="register-image" />
-    </div>
+      </div>
     <div className='RegisterSection'>
         <form action="register" method="post">
             <h1>Registration !</h1>
@@ -45,6 +47,8 @@ export const RegisterPage = () => {
             </div>
         </form>
     </div>
+        </div>
+    
     </div>
   )
 }
