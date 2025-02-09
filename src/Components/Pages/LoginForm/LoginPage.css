@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -46,7 +47,7 @@ body{
 }
 
 .loginCard .image-section img{
-    max-width: 100%;
+    max-width: 107%;
     height: auto;
     object-fit: contain;
 }
