@@ -18,11 +18,7 @@ export const RegisterPage = () => {
         <form action="register" method="post">
             <h1>Registration !</h1>
             <div className="textbox">
-            <input type="text" placeholder="First Name" name="firstname" required/>
-            <HiHashtag className="icon"/>
-            </div>
-            <div className="textbox">
-            <input type="text" placeholder="Last Name" name="lastname" required/>
+            <input type="text" placeholder="Name" name="name" required/>
             <HiHashtag className="icon"/>
             </div>
             <div className="textbox">
