@@ -25,12 +25,13 @@ export const Loginpage = () => {
             <label>
               <input type="checkbox" name="rememberme" /> Remember me
             </label>
-            <a href="#">Forgot your password?</a>
+            <div className="forgotpage-link">
+            <p><Link to="/ForgotPage">Forgot your password?</Link></p>
+          </div>
           </div>
           <button type="submit" className="loginbtn">Login</button>
           <div className="register-link">
             <p>Don't have an account? <Link to="/RegisterPage">Register here</Link></p>
-
           </div>
         </form>
     </div>
