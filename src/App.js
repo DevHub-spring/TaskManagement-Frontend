@@ -11,7 +11,7 @@ const App = () => {
       <div>
         <SideBar />
         <main>
-          <h2>Content</h2>
+          <h2>DashBoard</h2>
         </main>
       </div>
     // <Router>
