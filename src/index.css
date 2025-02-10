@@ -9,8 +9,18 @@ body{
 code{
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+/*base styling*/
 *{
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFDD0;
 }
