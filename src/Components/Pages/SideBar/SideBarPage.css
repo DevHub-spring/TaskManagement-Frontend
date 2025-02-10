@@ -3,10 +3,10 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
-  --first-color: hsl(248, 74%, 58%);
-  --black-color: hsl(248, 24%, 10%);
-  --white-color: #fff;
-  --body-color: hsl(248, 100%, 99%);
+  --first-color: #F4F2FA;
+  --black-color: white;
+  --white-color: #734F96;
+  --body-color: #C0C0C0;
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
   --small-font-size: .813rem;
