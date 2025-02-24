@@ -4,9 +4,9 @@
 :root {
   /*========== Colors ==========*/
   --first-color: #F4F2FA;
-  --black-color: white;
+  --black-color: #d3d2d2;
   --white-color: #734F96;
-  --body-color: #C0C0C0;
+  --body-color: #d3d2d2;
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
   --small-font-size: .813rem;

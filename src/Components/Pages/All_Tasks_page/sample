@@ -1,0 +1,57 @@
+<Router>
+    <Routes>
+      {/* Redirect root to login page */}
+      <Route path="/" element={<Navigate to="/loginpage" />} />
+
+      {/* Authentication Routes */}
+      <Route path="/loginpage" element={<Loginpage />} />
+      <Route path="/registerpage" element={<RegisterForm />} />
+      <Route path="/forgotpage" element={<ForgotPage />} />
+
+      {/* Protected Routes - Dashboard & Kanban */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedLayout>
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/kanban" element={<KanbanPage />} />
+            </Routes>
+          </ProtectedLayout>
+        }
+      />
+    </Routes>
+  </Router>
+
+
+
+  import { useDroppable } from "@dnd-kit/core";
+import { SortableContext } from "@dnd-kit/sortable";
+import { List, AutoSizer } from "react-virtualized";
+import TaskCard from "../Task/TaskCard";
+
+
+
+
+const rowRenderer = ({ index, key, style }) => (
+  <div key={key} style={{ ...style, margin: '0 8px' }}>
+    <TaskCard task={tasks[index]} />
+  </div>
+);
+
+  <div className="h-[500px]">
+  <SortableContext items={tasks.map(t => t.id)}>
+    <AutoSizer>
+      {({ width, height }) => (
+        <List
+          width={width}
+          height={height}
+          rowCount={tasks.length}
+          rowHeight={108} // 100px card + 8px margin
+          rowRenderer={rowRenderer}
+          className="scrollbar-thin scrollbar-thumb-gray-300"
+        />
+      )}
+    </AutoSizer>
+  </SortableContext>
+</div>
