@@ -8,8 +8,8 @@ const SideBarPage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   // eslint-disable-next-line no-sparse-arrays
   const menuItems=[
-    { icon: "ri-dashboard-3-line", name: "Home" },
-    { icon: "ri-rocket-line", name: "AllTasks" },
+    { icon: "ri-dashboard-3-line", name: "Home",path: "/" },
+    { icon: "ri-rocket-line", name: "AllTasks",path: "/kanban" },
     { icon: "ri-account-box-line", name: "Account" },
   ];
   return (
