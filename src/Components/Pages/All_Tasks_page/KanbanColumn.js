@@ -1,9 +1,8 @@
 import { useDroppable } from "@dnd-kit/core";
-import { SortableContext } from "@dnd-kit/sortable";
-import { List, AutoSizer } from "react-virtualized";
+import { AutoSizer, List } from "react-virtualized";
 import TaskCard from "../Task/TaskCard";
 
-const KanbanColumn = ({ status, tasks }) => {
+const KanbanColumn = ({ status, tasks, onEdit, expandedTaskId, setExpandedTaskId }) => {
   const { setNodeRef } = useDroppable({ 
     id: status,
     data: {
@@ -13,8 +12,13 @@ const KanbanColumn = ({ status, tasks }) => {
   });
 
   const rowRenderer = ({ index, key, style }) => (
-    <div key={key} style={{ ...style, margin: '0 8px' }}>
-      <TaskCard task={tasks[index]} />
+    <div key={key} style={{ ...style, margin: "0 8px" }}>
+      <TaskCard 
+        task={tasks[index]}
+        onEdit={onEdit}
+        expandedTaskId={expandedTaskId}        // ✅ Passing state correctly
+        setExpandedTaskId={setExpandedTaskId}  // ✅ And passing setter
+      />
     </div>
   );
 
@@ -30,23 +34,21 @@ const KanbanColumn = ({ status, tasks }) => {
 
       {/* Virtualized Task List */}
       <div className="flex-1 overflow-y-auto scrollbar-hidden">
-        <SortableContext items={tasks.map((t) => t.id)}>
-          <AutoSizer disableHeight>
-            {({ width }) => (
-              <List
-                width={width}
-                height={window.innerHeight - 150}
-                rowCount={tasks.length}
-                rowHeight={108}
-                rowRenderer={rowRenderer}
-                className="no-scrollbar" // Changed class name
-              />
-            )}
-          </AutoSizer>
-        </SortableContext>
+        <AutoSizer disableHeight>
+          {({ width }) => (
+            <List
+              width={width}
+              height={window.innerHeight - 150}
+              rowCount={tasks.length}
+              rowHeight={108}
+              rowRenderer={rowRenderer}
+              className="no-scrollbar"
+            />
+          )}
+        </AutoSizer>
       </div>
     </div>
   );
 };
 
-export default KanbanColumn
+export default KanbanColumn;
