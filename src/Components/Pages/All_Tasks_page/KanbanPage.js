@@ -57,9 +57,9 @@ const KanbanPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="ml-[-5rem] flex-1 p-6 flex gap-6">
+      <div className="flex flex-1 p-6 flex gap-6">
         {/* Kanban Board */}
-        <div className="flex-1 flex flex-col gap-4">
+        <div className="flex flex-col h-[calc(100vh-10px)]">
           {/* Header Card */}
           <div className="bg-white p-6 rounded-xl shadow-md sticky top-0 z-20 w-[calc(100%-0rem)]">
             <div className="flex justify-between items-center">
@@ -76,7 +76,7 @@ const KanbanPage = () => {
           {/* Columns Container */}
           <div className="flex-1">
           <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-  <div className="grid grid-cols-3 gap-6 h-[calc(100vh-180px)]">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 flex-1 p-2 mt-2">
     {columns.map((status) => (
       <SortableContext 
         key={status}
@@ -94,7 +94,7 @@ const KanbanPage = () => {
         </div>
 
         {/* Image Preview */}
-        <div className="w-60 bg-white rounded-xl shadow-md sticky top-6 h-[calc(100vh-44px)]">
+        <div className="w-[300px] bg-white rounded-xl shadow-md sticky top-6 h-[calc(100vh-44px)]">
           <div 
             className="h-full flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden" 
             style={{ marginRight: "-141px" }}
