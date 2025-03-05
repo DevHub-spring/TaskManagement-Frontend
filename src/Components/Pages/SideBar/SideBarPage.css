@@ -126,3 +126,39 @@ main {
 .active-link i {
   color: var(--first-color);
 }
+
+/* CSS for button */
+.toggle-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: var(--white-color);
+  color: var(--first-color);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.toggle-button:hover {
+  background-color: var(--black-color);
+}
+
+/* Smooth slide-in sidebar without changing position */
+.nav {width: 72px;
+  height: max-content;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto 0;
+}
+
+.nav--closed {
+  width: 0;
+  overflow: hidden;
+}
+
+.nav--open {
+  width: 72px;
+}
