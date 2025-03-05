@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './SideBarPage.css';
 import "remixicon/fonts/remixicon.css";
 
@@ -7,14 +7,15 @@ const SideBarPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
-    { icon: "ri-dashboard-3-line", name: "Home", path: "/" },
-    { icon: "ri-rocket-line", name: "Kanban", path: "/kanban" },
-    { icon: "ri-account-box-line", name: "Profile", path: "/profile" },
+    { icon: "ri-dashboard-3-line", name: "Home", path: "/dashboard" },
+    { icon: "ri-rocket-line", name: "All Tasks", path: "/kanban" },
+    { icon: "ri-account-box-line", name: "Account", path: "/profile" },
   ];
 
-  const allowedPaths = ['/', '/kanban', '/profile'];
+  const allowedPaths = ['/dashboard', '/kanban', '/profile'];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,25 +34,24 @@ const SideBarPage = () => {
 
   return (
     <>
-      <button className="toggle-button" onClick={toggleSidebar}>☰</button>
+      <button className="toggle-button" onClick={toggleSidebar}>{isSidebarOpen ? '✖' : '☰'}</button>
       <div className={`nav ${isSidebarOpen ? 'nav--open' : 'nav--closed'}`}>
         <ul className="nav__list">
           {menuItems.map((item, index) => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
-              href={item.path}
               key={index}
               className={`nav__link ${activeIndex === index ? "active-link" : ""}`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index);
+                navigate(item.path);
+              }}
             >
               <i className={item.icon}></i>
               <span className="nav__name">{item.name}</span>
             </a>
           ))}
         </ul>
-        <div className="nav__circle-1"></div>
-        <div className="nav__circle-2"></div>
-        <div className="nav__square-1"></div>
-        <div className="nav__square-2"></div>
       </div>
     </>
   );
