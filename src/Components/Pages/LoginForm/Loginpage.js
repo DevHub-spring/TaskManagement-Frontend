@@ -1,10 +1,32 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './LoginPage.css';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 import { FaUser,FaLock } from "react-icons/fa";
 import loginImage from '../../../images/login.png';
 import { Link } from 'react-router-dom';
 
-export const Loginpage = () => {
+const LoginPage=()=>{
+const navigate = useNavigate();
+const { login } = useAuth();
+
+const [email,setEmail]=useState("");
+const [password,setPassword]=useState("");
+const handelSubmit=(e)=>{
+  e.preventDefault();
+  console.log("Form Submitted");
+  //Mock Authentication
+  if(email === "test@example.com" && password === "password"){
+    console.log("Login Success");
+    debugger;
+    login();
+    navigate('/dashboard');
+
+}else
+{
+  alert("Invalid Credentials");
+}
+}
   return (
     <div className="logincontainer">
       <div className="loginCard">
@@ -12,14 +34,14 @@ export const Loginpage = () => {
         <img src={loginImage} alt="login-image" />
       </div>
       <div className="loginSection">
-        <form action="login" method="post">
+        <form action="login" method="post" onSubmit={handelSubmit}>
           <h1>Login</h1>
           <div className="textbox">
-            <input type="text" placeholder="Username" name="username" required/>
+            <input type="text" placeholder="Username" value={email} name="username" onChange={(e) => setEmail(e.target.value)} required/>
             <FaUser className="icon"/>
           </div>
           <div className="textbox">
-            <input type="password" placeholder="Password" name="password" required/>
+            <input type="password" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             <FaLock className="icon"/>
           </div>
           <div className="rememberme-forgot">
@@ -37,9 +59,8 @@ export const Loginpage = () => {
         </form>
         </div>
       </div>
-      
     </div>
     
   );
 };
-export default Loginpage
+export default LoginPage;

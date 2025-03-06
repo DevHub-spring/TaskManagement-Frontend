@@ -31,15 +31,9 @@ const TaskCard = ({ task, onEdit, expandedTaskId, setExpandedTaskId }) => {
 
   const isExpanded = expandedTaskId === task.id;
   const maxLength = 100;
-  const isLong = task.description && task.description.length > maxLength;
-  let displayDescription = task.description;
-  if (!isExpanded && isLong) {
-    displayDescription = task.description.substring(0, maxLength) + "...";
-  }
 
   const toggleExpand = (e) => {
     e.stopPropagation();
-    console.log("Expanding task:", task.id);
     setExpandedTaskId((prev) => (prev === task.id ? null : task.id));
   };
 
@@ -49,34 +43,32 @@ const TaskCard = ({ task, onEdit, expandedTaskId, setExpandedTaskId }) => {
       style={style}
       className={`p-3 rounded-lg shadow-sm hover:shadow-md cursor-grab active:cursor-grabbing h-auto overflow-hidden m-[10px] mr-[18px] ${getStatusColor(task.status)}`}
     >
-      {/* Drag handle area */}
       <div {...attributes} {...listeners}>
         <div className="text-gray-800 text-sm text-center font-semibold">
           {task.title}
         </div>
+
         {task.description && (
           <div className="mt-2 text-gray-700 text-xs">
-            {displayDescription}{" "}
-            {isLong && (
+            {isExpanded ? task.description : `${task.description.slice(0, maxLength)}...`}
+            {task.description.length > maxLength && (
               <span
                 style={{ pointerEvents: "auto" }}
                 onClick={toggleExpand}
-                className="text-blue-600 cursor-pointer underline"
+                className="text-blue-600 cursor-pointer underline ml-1"
               >
-                {isExpanded ? " less" : " more"}
+                {isExpanded ? "less" : "more"}
               </span>
             )}
           </div>
         )}
       </div>
-      
-      {/* Edit button outside the drag handle */}
+
       <button
         style={{ pointerEvents: "auto" }}
         className="absolute bottom-2 right-2 text-gray-700 hover:text-gray-900"
         onClick={(e) => {
           e.stopPropagation();
-          console.log("Edit button clicked for task:", task);
           onEdit(task);
         }}
       >

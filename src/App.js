@@ -1,41 +1,76 @@
- import React from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Loginpage from './Components/Pages/LoginForm/Loginpage';
 import RegisterForm from './Components/Pages/RegisterForm/RegisterPage';
 import ForgotPage from './Components/Pages/ForgotForm/ForgotPage';
-import {BrowserRouter as Router, Route, Routes,Navigate} from 'react-router-dom';
-import SideBar from './Components/Pages/SideBar/SideBarPage';
-import Dashboard from './Components/Pages/DashBoard_Components/Dashboard';
+import ProtectedLayout from './Components/ProtectedLayout';
+import Dashboard from './Components/Pages/DashBoard/Dashboard';
+import SideBarPage from './Components/Pages/SideBar/SideBarPage';
+import KanbanPage from './Components/Pages/AllTasks/KanbanPage';
+import Profile from './Components/Pages/ProfilePage/Profile';
+import { AuthProvider, useAuth } from './Components/AuthContext';
 import './App.css';
-import KanbanPage from './Components/Pages/All_Tasks_page/KanbanPage';
-import TaskModal from './Components/Pages/Task/Taskmodal';
+
+const ProtectedRoute = ({ element }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? element : <Navigate to="/login" />;
+};
+
 const App = () => {
+  const { isAuthenticated, login, logout } = useAuth();
+
   return (
     <Router>
-      <div className="flex">
-        <SideBar />
-        <div className="flex-grow p-6">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/kanban" element={<KanbanPage />} />
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        {/* Auth Routes */}
+        <Route path="/login" element={<Loginpage onLogin={login} />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/forgot" element={<ForgotPage />} />
+
+        {/* Protected Routes */}
+        {isAuthenticated ? (
+          <Route path="/" element={<ProtectedLayout onLogout={logout} />}>
+            <Route
+              path="/dashboard"
+              element={
+                <>
+                  <SideBarPage />
+                  <Dashboard />
+                </>
+              }
+            />
+            <Route
+              path="/kanban"
+              element={
+                <>
+                  <SideBarPage />
+                  <KanbanPage />
+                </>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <>
+                  <SideBarPage />
+                  <Profile />
+                </>
+              }
+            />
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Route>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} />
+        )}
+      </Routes>
     </Router>
   );
-}
+};
 
-// // HOC to check authentication
-// const ProtectedLayout = ({ children }) => {
-//   const isAuthenticated = !!localStorage.getItem("authToken"); // Example auth check
-//   return isAuthenticated ? (
-//     <div className="flex">
-//       <SideBar />
-//       <div className="flex-grow p-6">{children}</div>
-//     </div>
-//   ) : (
-//     <Navigate to="/loginpage" />
-//   );
-// };
+const WrappedApp = () => (
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);
 
-
-export default App;
+export default WrappedApp;

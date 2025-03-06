@@ -89,21 +89,7 @@ main {
   transition: transform 0.5s, opacity 0.5s;
   opacity: 0;
 }
-.nav__circle-1, .nav__circle-2 {
-  width: 80px;
-  height: 80px;
-  background-color: var(--body-color);
-  border-radius: 50%;
-  position: absolute;
-  left: 0;
-  z-index: 10;
-}
-.nav__circle-1 {
-  top: -78px;
-}
-.nav__circle-2 {
-  bottom: -78px;
-}
+
 .nav__square-1, .nav__square-2 {
   width: 35px;
   height: 40px;
@@ -112,12 +98,7 @@ main {
   left: 0;
   z-index: 1;
 }
-.nav__square-1 {
-  top: -39px;
-}
-.nav__square-2 {
-  bottom: -39px;
-}
+
 
 /* Active link */
 .active-link {
