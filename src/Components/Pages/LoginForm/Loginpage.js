@@ -1,12 +1,15 @@
 import React,{useState} from 'react';
 import './LoginPage.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 import { FaUser,FaLock } from "react-icons/fa";
 import loginImage from '../../../images/login.png';
 import { Link } from 'react-router-dom';
 
-const LoginPage=({onLogin})=>{
+const LoginPage=()=>{
 const navigate = useNavigate();
+const { login } = useAuth();
+
 const [email,setEmail]=useState("");
 const [password,setPassword]=useState("");
 const handelSubmit=(e)=>{
@@ -16,7 +19,7 @@ const handelSubmit=(e)=>{
   if(email === "test@example.com" && password === "password"){
     console.log("Login Success");
     debugger;
-    onLogin();
+    login();
     navigate('/dashboard');
 
 }else
